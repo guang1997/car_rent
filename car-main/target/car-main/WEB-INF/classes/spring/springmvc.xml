@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- controller组件的扫描 -->
+    <context:component-scan base-package="com" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    <!-- 静态资源放行的Servlet-->
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <!-- 注解驱动 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <!-- 配置springmvc对文件上传的支持 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置文件名的编码 -->
+        <property name="defaultEncoding" value="utf-8"></property>
+        <!-- 配置最上传文件的支持 20M -->
+        <property name="maxUploadSize" value="20971520"></property>
+        <!-- 设置文件上传的临时目录 -->
+        <property name="uploadTempDir" value="upload/temp" />
+    </bean>
+
+</beans>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.bus.mapper.BusChecksMapper">
+  <resultMap id="BaseResultMap" type="com.atguigu.bus.bean.BusChecks">
+    <id column="checkid" jdbcType="VARCHAR" property="checkid" />
+    <result column="checkdate" jdbcType="TIMESTAMP" property="checkdate" />
+    <result column="checkdesc" jdbcType="VARCHAR" property="checkdesc" />
+    <result column="problem" jdbcType="VARCHAR" property="problem" />
+    <result column="paymoney" jdbcType="DOUBLE" property="paymoney" />
+    <result column="opername" jdbcType="VARCHAR" property="opername" />
+    <result column="rentid" jdbcType="VARCHAR" property="rentid" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    checkid, checkdate, checkdesc, problem, paymoney, opername, rentid, createtime
+  </sql>
+  <select id="selectByExample" parameterType="com.atguigu.bus.bean.BusChecksExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bus_checks
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bus_checks
+    where checkid = #{checkid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from bus_checks
+    where checkid = #{checkid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.atguigu.bus.bean.BusChecksExample">
+    delete from bus_checks
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.atguigu.bus.bean.BusChecks">
+    insert into bus_checks (checkid, checkdate, checkdesc, 
+      problem, paymoney, opername, 
+      rentid, createtime)
+    values (#{checkid,jdbcType=VARCHAR}, #{checkdate,jdbcType=TIMESTAMP}, #{checkdesc,jdbcType=VARCHAR}, 
+      #{problem,jdbcType=VARCHAR}, #{paymoney,jdbcType=DOUBLE}, #{opername,jdbcType=VARCHAR}, 
+      #{rentid,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.atguigu.bus.bean.BusChecks">
+    insert into bus_checks
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="checkid != null">
+        checkid,
+      </if>
+      <if test="checkdate != null">
+        checkdate,
+      </if>
+      <if test="checkdesc != null">
+        checkdesc,
+      </if>
+      <if test="problem != null">
+        problem,
+      </if>
+      <if test="paymoney != null">
+        paymoney,
+      </if>
+      <if test="opername != null">
+        opername,
+      </if>
+      <if test="rentid != null">
+        rentid,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="checkid != null">
+        #{checkid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkdesc != null">
+        #{checkdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="problem != null">
+        #{problem,jdbcType=VARCHAR},
+      </if>
+      <if test="paymoney != null">
+        #{paymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="opername != null">
+        #{opername,jdbcType=VARCHAR},
+      </if>
+      <if test="rentid != null">
+        #{rentid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.atguigu.bus.bean.BusChecksExample" resultType="java.lang.Long">
+    select count(*) from bus_checks
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bus_checks
+    <set>
+      <if test="record.checkid != null">
+        checkid = #{record.checkid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkdate != null">
+        checkdate = #{record.checkdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.checkdesc != null">
+        checkdesc = #{record.checkdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.problem != null">
+        problem = #{record.problem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymoney != null">
+        paymoney = #{record.paymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.opername != null">
+        opername = #{record.opername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rentid != null">
+        rentid = #{record.rentid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bus_checks
+    set checkid = #{record.checkid,jdbcType=VARCHAR},
+      checkdate = #{record.checkdate,jdbcType=TIMESTAMP},
+      checkdesc = #{record.checkdesc,jdbcType=VARCHAR},
+      problem = #{record.problem,jdbcType=VARCHAR},
+      paymoney = #{record.paymoney,jdbcType=DOUBLE},
+      opername = #{record.opername,jdbcType=VARCHAR},
+      rentid = #{record.rentid,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.atguigu.bus.bean.BusChecks">
+    update bus_checks
+    <set>
+      <if test="checkdate != null">
+        checkdate = #{checkdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkdesc != null">
+        checkdesc = #{checkdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="problem != null">
+        problem = #{problem,jdbcType=VARCHAR},
+      </if>
+      <if test="paymoney != null">
+        paymoney = #{paymoney,jdbcType=DOUBLE},
+      </if>
+      <if test="opername != null">
+        opername = #{opername,jdbcType=VARCHAR},
+      </if>
+      <if test="rentid != null">
+        rentid = #{rentid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where checkid = #{checkid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.atguigu.bus.bean.BusChecks">
+    update bus_checks
+    set checkdate = #{checkdate,jdbcType=TIMESTAMP},
+      checkdesc = #{checkdesc,jdbcType=VARCHAR},
+      problem = #{problem,jdbcType=VARCHAR},
+      paymoney = #{paymoney,jdbcType=DOUBLE},
+      opername = #{opername,jdbcType=VARCHAR},
+      rentid = #{rentid,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where checkid = #{checkid,jdbcType=VARCHAR}
+  </update>
+</mapper>

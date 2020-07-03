@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>car-parent</artifactId>
+        <groupId>com.atguigu.carrent</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../car-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>car-manager-api</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.atguigu.carrent</groupId>
+            <artifactId>car-bean</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--        mapper中的参数使用@param-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

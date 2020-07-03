@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="car-manager-impl" />
+        <module name="car-bean" />
+        <module name="car-main" />
+        <module name="car-manager-api" />
+        <module name="car-commons" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="car-bean" target="1.8" />
+      <module name="car-commons" target="1.8" />
+      <module name="car-main" target="1.8" />
+      <module name="car-manager-api" target="1.8" />
+      <module name="car-manager-impl" target="1.8" />
+      <module name="car-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

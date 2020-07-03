@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/car-bean/car-bean.iml" filepath="$PROJECT_DIR$/car-bean/car-bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/car-commons/car-commons.iml" filepath="$PROJECT_DIR$/car-commons/car-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/car-main/car-main.iml" filepath="$PROJECT_DIR$/car-main/car-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/car-manager-api/car-manager-api.iml" filepath="$PROJECT_DIR$/car-manager-api/car-manager-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/car-manager-impl/car-manager-impl.iml" filepath="$PROJECT_DIR$/car-manager-impl/car-manager-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/car-parent/car-parent.iml" filepath="$PROJECT_DIR$/car-parent/car-parent.iml" />
+    </modules>
+  </component>
+</project>
