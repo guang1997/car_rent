@@ -12,3 +12,4 @@
      &emsp;&emsp;（6）main模块用于存放jsp页面以及ssm配置文件，依赖于manager-impl模块<br>
  &emsp; 2.前端页面使用layui和jsp，layui网址：https://www.layui.com/   <br>
  &emsp; 3.数据库使用mysql<br>
+ &emsp;4.权限控制使用Shiro<br>
