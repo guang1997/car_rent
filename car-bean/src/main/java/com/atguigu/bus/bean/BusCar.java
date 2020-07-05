@@ -1,5 +1,7 @@
 package com.atguigu.bus.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class BusCar {
@@ -20,7 +22,7 @@ public class BusCar {
     private String description;
 
     private String carimg;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
     private Date createtime;
 
     public String getCarnumber() {

@@ -52,4 +52,21 @@ public class SysConstast {
 
      //用户默认密码
     public static final String USER_DEFAULT_PWD = "123456";
+
+    // 临时文件标记
+    public static final String FILE_UPLOAD_TEMP = "_temp";
+    // 默认图片地址
+    public static final Object DEFAULT_CAR_IMG = "images/defaultImage.jpg";
+
+    // 出租单号前缀
+    public static final String CAR_ORDER_CZ = "CZ";
+    public static final String CAR_ORDER_JC = "JC";
+
+    // 汽车出租状态
+    public static final Integer CAR_RENT_TRUE = 1;
+    public static final Integer CAR_RENT_FALSE = 0;
+
+    // 汽车归还状态
+    public static final Integer CAR_BACK_TRUE = 1;
+    public static final Integer CAR_BACK_FALSE = 0;
 }

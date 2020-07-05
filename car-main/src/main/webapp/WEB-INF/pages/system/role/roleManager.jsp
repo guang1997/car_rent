@@ -138,12 +138,22 @@
                     }}
                 ,{fixed: 'right', title:'操作', toolbar: '#roleBar', width:220,align:'center'}
             ]]
+            , done: function (data, curr, count) {
+                // 如果当前页不是第一页，且删除之后这页没有数据了，那么跳到前一页
+                if (count == 0 && curr != 1) {
+                    tableIns.reload({
+                        page: {
+                            curr: curr - 1
+                        }
+                    })
+                }
+            }
         })
         //模糊查询
         $("#doSearch").click(function(){
             var params=$("#searchFrm").serialize();
             tableIns.reload({
-                url:"${PATH}/role/loadAllRole?"+params
+                url:"${PATH}/role/loadAllRole?"+params,
                 page:{curr:1}
             })
         });

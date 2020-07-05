@@ -23,8 +23,20 @@ public class RandomUtils {
 	public static String getCurrentDateForString() {
 		return sdf1.format(new Date());
 	}
-	
-	
+
+
+	/**
+	 *
+	 * @param fileName
+	 * @param suffix 临时文件后缀
+	 * @return
+	 */
+	public static String createFileNameUseTime(String fileName, String suffix) {
+		String fileSuffix=fileName.substring(fileName.lastIndexOf("."),fileName.length());
+		String time=sdf2.format(new Date());
+		Integer num=random.nextInt(9000)+1000;
+		return time+num+fileSuffix + suffix;
+	}
 	/**
 	 * 生成文件名使用时间+4位随机数
 	 * @param fileName 文件名称
@@ -44,5 +56,14 @@ public class RandomUtils {
 		String fileSuffix=fileName.substring(fileName.lastIndexOf("."),fileName.length());
 		return UUID.randomUUID().toString().replace("-", "").toUpperCase()+fileSuffix;
 	}
-	
+
+	/**
+	 * 生成订单号
+	 * @param carOrderCz
+	 * @return
+	 */
+	public static String createRandomStringUserTime(String carOrderCz) {
+		return carOrderCz + "_" + sdf1.format(new Date()) + "_" + (random.nextInt(999999) + 100000) + "_"
+				+ (random.nextInt(9999) + 1000) + "_" + (random.nextInt(99999) + 10000);
+	}
 }

@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/sys")
 public class SysController {
 
+    /**
+     * 跳转到公告页面
+     * @return
+     */
     @RequestMapping(value = "/toNewsPage")
     public String toNewsPage() {
         return "system/news/news";

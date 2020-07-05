@@ -1,5 +1,7 @@
 package com.atguigu.bus.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class BusCustomer {
@@ -15,6 +17,7 @@ public class BusCustomer {
 
     private String career;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
     private Date createtime;
 
     public String getIdentity() {

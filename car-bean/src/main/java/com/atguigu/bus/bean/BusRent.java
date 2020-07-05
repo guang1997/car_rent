@@ -1,5 +1,8 @@
 package com.atguigu.bus.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class BusRent {
@@ -7,8 +10,12 @@ public class BusRent {
 
     private Double price;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
     private Date begindate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
     private Date returndate;
 
     private Integer rentflag;
@@ -19,6 +26,7 @@ public class BusRent {
 
     private String opername;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
     private Date createtime;
 
     public String getRentid() {

@@ -11,6 +11,7 @@
         <property name="username" value="${datasource.username}"></property>
         <property name="password" value="${datasource.password}"></property>
         <property name="driverClassName" value="${datasource.driver}"></property>
+        <property name="loginTimeout" value="50000"></property>
     </bean>
     <!-- 事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
