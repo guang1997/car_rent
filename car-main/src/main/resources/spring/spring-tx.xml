@@ -6,12 +6,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <context:property-placeholder location="classpath*:jdbc.properties"></context:property-placeholder>
     <!-- 配置数据库连接池 -->
-    <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource" init-method="init">
         <property name="url" value="${datasource.url}"></property>
         <property name="username" value="${datasource.username}"></property>
         <property name="password" value="${datasource.password}"></property>
         <property name="driverClassName" value="${datasource.driver}"></property>
         <property name="loginTimeout" value="50000"></property>
+        <property name="filters" value="stat"></property>
     </bean>
     <!-- 事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >

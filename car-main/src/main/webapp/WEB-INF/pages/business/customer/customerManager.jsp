@@ -230,6 +230,7 @@
 
             tableIns.reload({
                 url: "${PATH}/customer/loadAllCustomer?" + params
+                ,page:{curr:1}
             })
         });
 
@@ -243,8 +244,7 @@
                     deleteBatch();
                     break;
             }
-            ;
-        })
+        });
         //监听行工具事件
         table.on('tool(customerTable)', function (obj) {
             var data = obj.data; //获得当前行数据

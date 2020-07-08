@@ -249,6 +249,7 @@
 
             tableIns.reload({
                 url: "${PATH}/car/loadAllCar?" + params
+                ,page:{curr:1}
             })
         });
 

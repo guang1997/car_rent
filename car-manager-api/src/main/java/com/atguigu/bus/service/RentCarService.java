@@ -6,4 +6,12 @@ import com.atguigu.car.utils.DataGridView;
 public interface RentCarService {
 
     void addCarRent(RentVo rentVo);
+
+    DataGridView loadAllRentList(RentVo rentVo);
+
+    void delRentList(RentVo rentVo);
+
+    void deleteBatch(RentVo rentVo);
+
+    void updateRentList(RentVo rentVo);
 }

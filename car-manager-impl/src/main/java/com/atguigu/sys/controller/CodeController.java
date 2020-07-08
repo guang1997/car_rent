@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.Jedis;
 
+/**
+ * 该类为手机验证的代码，与此项目无关，是之前做的放到这里了
+ */
 @RequestMapping(value = "/code")
 @Controller
 public class CodeController {

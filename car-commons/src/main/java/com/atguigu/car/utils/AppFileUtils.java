@@ -57,7 +57,7 @@ public class AppFileUtils {
                 HttpHeaders header=new HttpHeaders();
                 //封装响应内容类型(APPLICATION_OCTET_STREAM 响应的内容不限定)
                 header.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-//                //设置下载的文件的名称
+//                //设置下载的文件的名称，设置之后一直报错，找不到图片
 //                header.setContentDispositionFormData("attachment", oldName);
                 //创建ResponseEntity对象
                 ResponseEntity<Object> entity=

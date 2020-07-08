@@ -5,7 +5,7 @@
 </head>
 <link rel="stylesheet" href="${PATH}/static/layui/css/layui.css" media="all">
 <body>
-
+<%--这里是手机验证的前端代码，与此项目无关，是之前做的放到这里了--%>
 <br>
 <br>
 <br>

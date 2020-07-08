@@ -7,13 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CusController {
 
+    @RequestMapping(value = "/toRentListManagerPage")
+    public String toRentListManagerPage() {
+        return "business/rent/rentListManager";
+    }
     /**
      * 跳转到汽车出租页面
      * @return
      */
     @RequestMapping(value = "/toRentCarManager")
     public String toRentCarManager() {
-        return "system/car/rentCar";
+        return "business/rent/rentCar";
     }
     /**
      * 跳转到客户管理页面
@@ -21,7 +25,7 @@ public class CusController {
      */
     @RequestMapping(value = "/toCustomerPage")
     public String toCustomerPage() {
-        return "system/customer/customerManager";
+        return "business/customer/customerManager";
     }
 
 
@@ -31,6 +35,6 @@ public class CusController {
      */
     @RequestMapping(value = "/toCarManagerPage")
     public String toCarManager() {
-        return "system/car/carManager";
+        return "business/car/carManager";
     }
 }
