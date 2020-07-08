@@ -322,7 +322,7 @@
             });
         }
 
-        //保存，可用于修改和保存管理员
+        //保存，可用于修改和保存车辆信息
         form.on("submit(doSubmit)", function (obj) {
             //序列化表单数据
             var params = $("#dataFrm").serialize();

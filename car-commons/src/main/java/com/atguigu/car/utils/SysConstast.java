@@ -63,10 +63,14 @@ public class SysConstast {
     public static final String CAR_ORDER_JC = "JC";
 
     // 汽车出租状态
-    public static final Integer CAR_RENT_TRUE = 1;
-    public static final Integer CAR_RENT_FALSE = 0;
+    public static final Integer CAR_RENT_TRUE = 1;// 已出租
+    public static final Integer CAR_RENT_FALSE = 0;// 未出租
 
     // 汽车归还状态
-    public static final Integer CAR_BACK_TRUE = 1;
-    public static final Integer CAR_BACK_FALSE = 0;
+    public static final Integer CAR_BACK_TRUE = 1;// 已归还
+    public static final Integer CAR_BACK_FALSE = 0;// 未归还
+
+    // 出租单状态
+    public static final Integer RENT_BACK_FALSE = 0;// 未出租
+    public static final Integer RENT_BACK_TRUE = 0;// 已出租
 }

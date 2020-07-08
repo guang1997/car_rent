@@ -299,7 +299,6 @@
         form.on("submit(doSubmit)", function (obj) {
             //序列化表单数据
             var params = $("#dataFrm").serialize();
-            console.log(params);
             $.post(url, params, function (obj) {
                 layer.msg(obj.msg);
                 //关闭弹出层

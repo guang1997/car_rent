@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.bus.mapper.BusCarMapper">
+  <select id="getCarByRentId" resultType="com.atguigu.bus.bean.BusCar">
+      SELECT t1.*
+      FROM bus_car t1
+      JOIN bus_rent t2
+      ON t1.`carnumber`=t2.`carnumber`
+      WHERE t2.`rentid`= #{rentid}
+  </select>
   <resultMap id="BaseResultMap" type="com.atguigu.bus.bean.BusCar">
     <id column="carnumber" jdbcType="VARCHAR" property="carnumber" />
     <result column="cartype" jdbcType="VARCHAR" property="cartype" />

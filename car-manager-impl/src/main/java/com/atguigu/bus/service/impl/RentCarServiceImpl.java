@@ -113,4 +113,14 @@ public class RentCarServiceImpl implements RentCarService {
     public void updateRentList(RentVo rentVo) {
         busRentMapper.updateByPrimaryKeySelective(rentVo);
     }
+
+    /**
+     * 用于查询出租单状态
+     * @param rentid
+     * @return
+     */
+    @Override
+    public BusRent checkRentExist(String rentid) {
+        return busRentMapper.selectByPrimaryKey(rentid);
+    }
 }

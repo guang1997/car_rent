@@ -15,6 +15,7 @@ public class RandomUtils {
 	
 	private static SimpleDateFormat sdf1=new SimpleDateFormat("yyyy-MM-dd");
 	private static SimpleDateFormat sdf2=new SimpleDateFormat("yyyyMMddHHmmssSSS");
+	private static SimpleDateFormat sdf3=new SimpleDateFormat("yyyyMMdd_HHmmss_SSS");
 	private static Random random=new Random();
 	
 	/**
@@ -63,7 +64,15 @@ public class RandomUtils {
 	 * @return
 	 */
 	public static String createRandomStringUserTime(String carOrderCz) {
-		return carOrderCz + "_" + sdf1.format(new Date()) + "_" + (random.nextInt(999999) + 100000) + "_"
-				+ (random.nextInt(9999) + 1000) + "_" + (random.nextInt(99999) + 10000);
+		return carOrderCz + "_" + sdf3.format(new Date()) + "_" + (random.nextInt(999999) + 100000);
+	}
+
+	/**
+	 * 生成检查单号
+	 * @param carOrderJc
+	 * @return
+	 */
+	public static String createRandomStringCheckId(String carOrderJc) {
+		return carOrderJc + "_" + sdf3.format(new Date()) + "_" +  (random.nextInt(999999) + 100000);
 	}
 }

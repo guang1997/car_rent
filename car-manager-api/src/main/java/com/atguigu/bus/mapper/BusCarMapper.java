@@ -27,4 +27,6 @@ public interface BusCarMapper {
     int updateByPrimaryKeySelective(BusCar record);
 
     int updateByPrimaryKey(BusCar record);
+
+    BusCar getCarByRentId(String rentid);
 }

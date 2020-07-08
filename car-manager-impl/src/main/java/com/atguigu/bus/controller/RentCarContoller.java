@@ -1,6 +1,7 @@
 package com.atguigu.bus.controller;
 
 import com.atguigu.bus.bean.BusCustomer;
+import com.atguigu.bus.bean.BusRent;
 import com.atguigu.bus.service.CustomerService;
 import com.atguigu.bus.service.RentCarService;
 import com.atguigu.bus.vo.RentVo;
@@ -24,6 +25,15 @@ public class RentCarContoller {
     @Autowired
     CustomerService customerService;
 
+    /**
+     * 用于查询订单状态
+     * @param rentid
+     * @return
+     */
+    @PostMapping(value = "/checkRentExist")
+    public BusRent checkRentExist(String rentid) {
+        return rentCarService.checkRentExist(rentid);
+    }
     /**
      * 修改订单
      * @param rentVo

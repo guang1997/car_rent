@@ -27,4 +27,6 @@ public interface BusCustomerMapper {
     int updateByPrimaryKeySelective(BusCustomer record);
 
     int updateByPrimaryKey(BusCustomer record);
+
+    BusCustomer getCustomerByRentId(String rentid);
 }

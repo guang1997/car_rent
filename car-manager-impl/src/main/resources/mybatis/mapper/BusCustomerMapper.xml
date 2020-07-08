@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.bus.mapper.BusCustomerMapper">
+  <select id="getCustomerByRentId" resultType="com.atguigu.bus.bean.BusCustomer">
+        SELECT t1.*
+        FROM bus_customer t1
+        JOIN bus_rent t2
+        ON t1.`identity`=t2.`identity`
+        WHERE t2.`rentid`=#{rentid}
+  </select>
   <resultMap id="BaseResultMap" type="com.atguigu.bus.bean.BusCustomer">
     <id column="identity" jdbcType="VARCHAR" property="identity" />
     <result column="custname" jdbcType="VARCHAR" property="custname" />

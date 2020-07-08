@@ -27,6 +27,7 @@
                 <value>
                     com.atguigu.bus.mapper
                     com.atguigu.sys.mapper
+                    com.atguigu.stat.mapper
                 </value>
         </property>
     </bean>

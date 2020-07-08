@@ -7,6 +7,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CusController {
 
+    /**
+     * 跳转到检查单管理页面
+     * @return
+     */
+    @RequestMapping(value = "/toCheckListPage")
+    public String toCheckListPage() {
+        return "business/check/checkListManager";
+    }
+    /**
+     * 跳转到出租单检查页面
+     * @return
+     */
+    @RequestMapping(value = "/toCheckCarManagerPage")
+    public String toCheckCarManagerPage() {
+        return "business/check/checkCarManager";
+    }
+    /**
+     * 跳转到出租单管理页面
+     * @return
+     */
     @RequestMapping(value = "/toRentListManagerPage")
     public String toRentListManagerPage() {
         return "business/rent/rentListManager";
