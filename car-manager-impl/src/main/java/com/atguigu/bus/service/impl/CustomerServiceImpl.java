@@ -116,4 +116,48 @@ public class CustomerServiceImpl implements CustomerService {
         return customerMapper.selectByPrimaryKey(identity);
     }
 
+    /**
+     * 查询客户信息，用于导出到excel表格
+     * @param customerVo
+     * @return
+     */
+    @Override
+    public List<BusCustomer> queryAllCustomerForList(CustomerVo customerVo) {
+        BusCustomerExample exa = new BusCustomerExample();
+        BusCustomerExample.Criteria criteria = exa.createCriteria();
+        // 对模糊查询进行条件判断
+        if (!StringUtil.isEmpty(customerVo.getCustname())) {
+            criteria.andCustnameLike("%" + customerVo.getCustname() + "%");
+        }
+        if (!StringUtil.isEmpty(customerVo.getIdentity())) {
+            criteria.andIdentityLike("%" + customerVo.getIdentity() + "%");
+        }
+        if (!StringUtil.isEmpty(customerVo.getAddress())) {
+            criteria.andAddressLike("%" + customerVo.getAddress() + "%");
+        }
+        if (!StringUtil.isEmpty(customerVo.getPhone())) {
+            criteria.andPhoneLike("%" + customerVo.getPhone() + "%");
+        }
+        if (!StringUtil.isEmpty(customerVo.getCareer())) {
+            criteria.andCareerLike("%" + customerVo.getCareer() + "%");
+        }
+        if (customerVo.getStartTime() != null) {
+            criteria.andCreatetimeGreaterThan(customerVo.getStartTime());
+        }
+        if (customerVo.getEndTime() != null) {
+            criteria.andCreatetimeLessThan(customerVo.getEndTime());
+        }
+        // 性别
+        if (customerVo.getSex() != null) {
+            if (customerVo.getSex() == 1) {
+                criteria.andSexEqualTo(1);
+            } else {
+                criteria.andSexEqualTo(0);
+            }
+        }
+
+        return customerMapper.selectByExample(exa);
+
+    }
+
 }

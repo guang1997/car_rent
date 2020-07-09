@@ -17,4 +17,6 @@ public interface RentCarService {
     void updateRentList(RentVo rentVo);
 
     BusRent checkRentExist(String rentid);
+
+    BusRent selectRentListById(String rentid);
 }

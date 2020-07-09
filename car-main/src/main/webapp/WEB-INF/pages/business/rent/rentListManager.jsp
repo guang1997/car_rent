@@ -87,6 +87,7 @@
 <div id="rentListBar" style="display: none;">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="exportRent">导出出租单</a>
 </div>
 <!-- 数据表格结束 -->
 
@@ -183,7 +184,7 @@
                 {type: 'checkbox', fixed: 'left', width: 80}
                 , {field: 'rentid', title: '出租单号', align: 'center', width: 260}
                 , {field: 'identity', title: '身份证号', align: 'center', width: 200}
-                , {field: 'carnumber', title: '车牌号', align: 'center', width: 150}
+                , {field: 'carnumber', title: '车牌号', align: 'center', width: 100}
                 , {
                     field: 'rentflag', title: '是否归还', align: 'center', width: 100, templet: function (d) {
                         return d.rentflag == '1' ? '<font color=blue>已归还</font>' : '<font color=red>未归还</font>';
@@ -191,8 +192,8 @@
                 }
                 , {field: 'begindate', title: '起租时间', align: 'center', width: 100}
                 , {field: 'returndate', title: '还车时间', align: 'center', width: 100}
-                , {field: 'price', title: '出租价格', align: 'center', width: 100}
-                , {field: 'opername', title: '操作员', align: 'center', width: 100}
+                , {field: 'price', title: '出租价格', align: 'center', width: 80}
+                , {field: 'opername', title: '操作员', align: 'center', width: 80}
                 , {field: 'createtime', title: '录入时间', align: 'center', width: 180}
                 , {fixed: 'right', title: '操作', toolbar: '#rentListBar', align: 'center'}
             ]]
@@ -253,6 +254,8 @@
                 });
             } else if (layEvent === 'edit') { //编辑
                 openUpdateCar(data);
+            } else if (layEvent === 'exportRent') {
+                window.location.href ="${PATH}/stat/exportRent?rentid=" + data.rentid;
             }
         });
 

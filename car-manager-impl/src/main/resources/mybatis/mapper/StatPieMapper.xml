@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.atguigu.stat.mapper.StatPieMapper">
-
-    <select id="getStatJson" resultType="com.atguigu.stat.DataEntity">
-        SELECT address as name, COUNT(1) as value FROM bus_customer GROUP BY address
-    </select>
-</mapper>

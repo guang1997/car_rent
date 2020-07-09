@@ -73,4 +73,7 @@ public class SysConstast {
     // 出租单状态
     public static final Integer RENT_BACK_FALSE = 0;// 未出租
     public static final Integer RENT_BACK_TRUE = 0;// 已出租
+
+    // 验证码是否正确
+    public static final String LOGIN_CODE_ERROR = "验证码错误，请重新输入";
 }

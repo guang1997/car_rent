@@ -4,6 +4,8 @@ import com.atguigu.bus.bean.BusCustomer;
 import com.atguigu.bus.vo.CustomerVo;
 import com.atguigu.car.utils.DataGridView;
 
+import java.util.List;
+
 public interface CustomerService {
     DataGridView queryAllCustomer(CustomerVo customerVo);
 
@@ -16,4 +18,6 @@ public interface CustomerService {
     void delCustomer(CustomerVo customerVo);
 
     BusCustomer queryCustomerById(String identity);
+
+    List<BusCustomer> queryAllCustomerForList(CustomerVo customerVo);
 }

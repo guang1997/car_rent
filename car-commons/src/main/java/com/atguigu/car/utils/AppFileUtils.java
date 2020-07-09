@@ -1,9 +1,6 @@
 package com.atguigu.car.utils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.URLEncoder;
 import java.util.Properties;
 
@@ -16,6 +13,35 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 public class AppFileUtils {
+    /**
+     * 导出文件时的公用方法
+     *
+     * @param bos
+     *            文件流
+     * @param fileName
+     *            文件名注意后缀
+     * @return
+     */
+    public static ResponseEntity<Object> downloadFile(ByteArrayOutputStream bos, String fileName) {
+        // 把文件转字节数组
+        byte[] bytes=bos.toByteArray();
+        // 创建封装响应头信息的对象
+        HttpHeaders header = new HttpHeaders();
+        // 封装响应内容类型(APPLICATION_OCTET_STREAM 响应的内容不限定)
+        header.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+
+        // 处理下载文件名中文的问题
+        try {
+            fileName = URLEncoder.encode(fileName, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        // 设置下载的文件的名称
+        header.setContentDispositionFormData("attachment", fileName);
+        // 创建ResponseEntity对象
+        ResponseEntity<Object> entity = new ResponseEntity<Object>(bytes, header, HttpStatus.CREATED);
+        return entity;
+    }
 
     /**
      * 得到文件上传的路径

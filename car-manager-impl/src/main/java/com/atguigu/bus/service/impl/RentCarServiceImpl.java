@@ -123,4 +123,14 @@ public class RentCarServiceImpl implements RentCarService {
     public BusRent checkRentExist(String rentid) {
         return busRentMapper.selectByPrimaryKey(rentid);
     }
+
+    /**
+     * 根据id查找出租单信息
+     * @param rentid
+     * @return
+     */
+    @Override
+    public BusRent selectRentListById(String rentid) {
+        return busRentMapper.selectByPrimaryKey(rentid);
+    }
 }

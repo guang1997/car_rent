@@ -84,6 +84,9 @@
                     id="doSearch">查询
             </button>
             <button type="reset" class="layui-btn layui-btn-warm  layui-icon layui-icon-refresh">重置</button>
+            <button type="button" class="layui-btn layui-btn-normal  layui-icon layui-icon-download-circle"
+                    id="exportCustomer">导出
+            </button>
         </div>
     </div>
 </form>
@@ -234,6 +237,11 @@
             })
         });
 
+        // 导出客户数据
+        $("#exportCustomer").click(function () {
+            var params = $("#searchFrm").serialize();
+            window.location.href="${PATH}/stat/exportCustomer?" + params;
+        });
         //监听头部工具栏事件
         table.on("toolbar(customerTable)", function (obj) {
             switch (obj.event) {
