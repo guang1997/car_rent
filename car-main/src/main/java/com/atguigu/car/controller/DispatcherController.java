@@ -15,4 +15,8 @@ public class DispatcherController {
     public String toCodePage() {
         return "code";
     }
+
+    public void test() {
+        System.out.println("测试");
+    }
 }
