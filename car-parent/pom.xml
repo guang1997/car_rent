@@ -27,7 +27,7 @@
         <commons-email.version>1.4</commons-email.version>
 
         <!-- junit -->
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
 
         <!-- 数据库 -->
         <druid.version>1.1.0</druid.version>
